@@ -1,0 +1,8 @@
+@use 'variaveis';
+@use 'hero';
+
+.button {
+    &--red {
+        color: red;
+    }
+}
