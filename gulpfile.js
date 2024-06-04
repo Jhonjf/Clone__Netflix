@@ -9,11 +9,15 @@ function scripts() {
     .pipe(gulp.dest('./dist/js'))
 }
 
-function styles() {
-    console.log('Compilando sass')
-    return gulp.src('./src/styles/*.scss')
+sass.compiler = require("node-sass")
+
+gulp.task('sass', compilaSass)
+
+function compilaSass() {
+    return gulp
+        .src('./src/styles/*.sass')
         .pipe(sass({outputStyle: 'compressed'}))
-        .pipe(gulp.dest('./dist/css'));
+        .pipe(gulp.dest('../dist/css/'));
 }
 
 function images() {
@@ -22,8 +26,8 @@ function images() {
         .pipe(gulp.dest('./dist/images'));
 }
 
-exports.default = gulp.parallel(styles, images, scripts);
+exports.default = gulp.parallel(compilaSass, images, scripts);
 exports.watch = function() {
-    gulp.watch('./src/styles/*.scss',gulp.parallel(styles))
+    gulp.watch('./src/styles/*.scss',gulp.parallel(scss))
     gulp.watch('./src/scripts/*.js',gulp.parallel(scripts))
 }
