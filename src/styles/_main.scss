@@ -1,6 +1,25 @@
 @use 'variaveis';
 @use 'hero';
 
+
+.container {
+    max-width: 1024px;
+    &__header {
+        &__container {
+            &__icon {
+                &__logo {
+                    img {
+                        display: block;
+                        max-width: 88px;
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
 .button {
     &--red {
         color: red;
