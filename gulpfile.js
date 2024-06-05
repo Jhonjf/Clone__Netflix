@@ -14,10 +14,10 @@ function scripts() {
 function compilaSass() {
     return gulp.src('./src/styles/*.scss')
         .pipe(sass({ outputStyle: 'compressed' }))
-        .pipe(gulp.dest('../dist/css'));
+        .pipe(gulp.dest('./dist/css'));
 }
 
-// Otimização de imagens
+// Otimizar as imagens
 function images() {
     return gulp.src('./src/images/**/*')
         .pipe(imagemin())
