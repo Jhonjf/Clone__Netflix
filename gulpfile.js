@@ -27,7 +27,7 @@ function images() {
 // Exportando as tarefas
 exports.default = gulp.parallel(compilaSass, images, scripts);
 exports.watch = function() {
-    gulp.watch('./src/styles/*.sass', gulp.parallel(compilaSass));
+    gulp.watch('./src/styles/*.scss', gulp.parallel(compilaSass));
     gulp.watch('./src/scripts/*.js', gulp.parallel(scripts));
     gulp.watch('./src/images/**/*', gulp.parallel(images));
 };
